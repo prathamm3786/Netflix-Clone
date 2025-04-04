@@ -8,7 +8,7 @@ const SignUpPage = () => {
   const [email, setEmail] = useState(emailValue || "")
   const [username, setUsername] = useState('')
   const [password, setPassword] = useState('')
-  const { signup } = useAuthStore()
+  const { signup , isSigninUp } = useAuthStore()
 
   const handleSubmit = (e) => {
     e.preventDefault()
@@ -49,7 +49,7 @@ const SignUpPage = () => {
                 value={password} onChange={(e) => setPassword(e.target.value)}
               />
             </div>
-            <button className='w-full py-2 bg-red-600 text-white font-semibold rounded-md hover:bg-red-700' >Sign Up</button>
+            <button className='w-full py-2 bg-red-600 text-white font-semibold rounded-md hover:bg-red-700' disabled={isSigninUp} >{isSigninUp ? "Loading..." : "Sign up" } </button>
           </form>
           <div className='text-center mt-4 text-gray-400 '>
             <p>Already have an account?{" "} <Link to='/login' className='text-red-600 hover:underline'>Sign in</Link></p>
