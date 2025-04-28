@@ -18,9 +18,7 @@ const __dirname = dirname(__filename);
 app.use(express.json());
 app.use(express.urlencoded());
 app.use(cookieParser());
-app.use("/",()=>{
-  res.send("api is working")
-})
+
 app.use("/api/v1/auth", authRoutes);
 app.use("/api/v1/movie", protectRoute, movieRoutes);
 app.use("/api/v1/tv", protectRoute, tvRoutes);
